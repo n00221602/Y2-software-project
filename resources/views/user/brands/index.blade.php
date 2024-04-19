@@ -5,10 +5,10 @@
     <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico">
 </head>
 
-<nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #6ec76b">
+<nav class="navbar navbar-expand-md navbar-light shadow-sm mb-3" style="background-color: #a1f09f">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            <img src="{{ asset('./images/logo.png') }}" class="img-fluid" width="50px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -18,18 +18,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
-                <!-- Navigation Links -->
-                @if (auth()->check() && auth()->user()->hasRole('admin'))
-                    <x-nav-link :href="route('admin.brands.index')" :active="request()->routeIs('brands.index')">
-                        {{ __('All Brands') }}
-                    </x-nav-link>
-                @elseif(auth()->check() && auth()->user()->hasRole('user'))
-                    <x-nav-link :href="route('user.brands.index')" :active="request()->routeIs('brands.index')">
-                        {{ __('All Brands') }}
-                    </x-nav-link>
-
-                @endif
+            <ul class=" pt-1 navbar-nav me-auto">
+                <h1 class="fs-2 " style="font-family: 'Roboto'; font-style:italic">Ecognito</h1>
 
                 @if (auth()->check() && auth()->user()->hasRole('admin'))
                     <x-nav-link :href="route('admin.brands.create')" :active="request()->routeIs('brands.create')">
@@ -94,7 +84,7 @@
                     @endif
                     <div>
                     <a href="{{ route('user.brands.show', $brand) }}"
-                        class= "fs-3 fw-bold text-primary link-underline link-underline-opacity-0 link-offset-1-hover link-underline-opacity-75-hover">
+                        class= "fs-3 fw-bold link-underline-success link-underline-opacity-0 link-offset-1-hover link-underline-opacity-75-hover" style="color: #64d060">
                         Browse {{ $brand->brand_name }}</a>
                     </div>
                 </div>

@@ -2,10 +2,10 @@
 
 @section('content')
 
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light shadow-sm mb-3" style="background-color: #a1f09f">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            <img src="{{ asset('./images/logo.png') }}" class="img-fluid" width="50px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -15,24 +15,23 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
-                <!-- Navigation Links -->
-                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
-                </x-nav-link>
+            <ul class=" pt-1 navbar-nav me-auto">
+                <h1 class="fs-2 me-4" style="font-family: 'Roboto'; font-style:italic">Ecognito</h1>
+
                 @if (auth()->check() && auth()->user()->hasRole('admin'))
-                    <x-nav-link :href="route('admin.brands.index')" :active="request()->routeIs('brands.index')">
+                    <x-nav-link class="fs-5 link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" :href="route('admin.brands.index')" :active="request()->routeIs('brands.index')">
                         {{ __('All Brands') }}
                     </x-nav-link>
+
                 @elseif(auth()->check() && auth()->user()->hasRole('user'))
-                    <x-nav-link :href="route('user.brands.index')" :active="request()->routeIs('brands.index')">
-                        {{ __('All Brands') }}
+                    <x-nav-link class="fs-5 link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" :href="route('user.brands.index')" :active="request()->routeIs('brands.index')">
+                        {{ __('View All Brands') }}
                     </x-nav-link>
 
                 @endif
 
                 @if (auth()->check() && auth()->user()->hasRole('admin'))
-                    <x-nav-link :href="route('admin.brands.create')" :active="request()->routeIs('brands.create')">
+                    <x-nav-link class=" ms-2 fs-5 link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" :href="route('admin.brands.create')" :active="request()->routeIs('brands.create')">
                         {{ __('Add Brand') }}
                     </x-nav-link>
                 @endif
@@ -79,20 +78,21 @@
     </div>
 </nav>
 
-<div class="container">
+
+<div class="container" style="height:600px ; margin-top:50px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header fw-bold fs-4" style="background-color:#6ec76b; text-align:center">{{ __('Welcome!') }} </div>
 
-                <div class="card-body">
+                <div class="card-body fs-5" style="background-color: #f0ffed; text-align:center">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are now logged in, click the link above to view our list of brands!') }}
                 </div>
             </div>
         </div>

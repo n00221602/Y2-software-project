@@ -121,13 +121,13 @@
                 </div>
                 <div class="carousel-inner w-100" style="height: 400px">
                     <div class="carousel-item active">
-                        <div class="carousel-text" style="height:400px; background-color:rgb(195, 161, 132)">
+                        <div class="carousel-text" style="height:400px; background-color:rgb(191, 177, 223)">
                             <h1 class="display-3">Shop Men's Clothing.</h1>
                         </div>
                     </div>
 
                     <div class="carousel-item h-50">
-                        <div class="carousel-text" style="height:400px; background-color:rgb(191, 177, 223)">
+                        <div class="carousel-text" style="height:400px; background-color:rgb(195, 132, 132)">
                             <h1 class="display-3">Shop Women's Clothing.</h1>
                         </div>
                     </div>
